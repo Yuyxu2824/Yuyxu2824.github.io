@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regalo de Aniversario</title>
+    <style>
+        body {
+            background-color: #fce4ec;
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            margin: 0;
+        }
+        h1 {
+            color: #C00000;
+            margin-bottom: 20px;
+        }
+        .book {
+            width: 80%;
+            margin: 0 auto;
+            background-color: #fff0f5;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            display: flex;
+        }
+        .tabs {
+            width: 25%;
+            background-color: #C00000;
+            display: flex;
+            flex-direction: column;
+            padding: 20px;
+            border-right: 3px solid #C00000;
+        }
+        .tab {
+            padding: 15px;
+            margin: 10px 0;
+            border: 2px solid transparent;
+            border-radius: 10px;
+            background-color: #ffe6f2;
+            cursor: pointer;
+            color: #C00000;
+            font-weight: bold;
+            transition: background-color 0.3s, border-color 0.3s;
+        }
+        .tab.active {
+            background-color: #fff;
+            border-color: #C00000;
+        }
+        .content {
+            width: 75%;
+            padding: 30px;
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+        .images img {
+            width: 100%;
+            border-radius: 10px;
+            border: 10px solid #C00000;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            margin-bottom: 15px;
+        }
+        .messages {
+            border: 2px solid #C00000;
+            border-radius: 10px;
+            padding: 15px;
+            background-color: #fff0f5;
+            margin-bottom: 20px;
+        }
+        .videos iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 10px;
+            border: 5px solid #C00000;
+            margin-bottom: 15px;
+        }
+        .playlist iframe {
+            width: 100%;
+            height: 315px;
+            border-radius: 10px;
+            border: 5px solid #C00000;
+            margin-bottom: 15px;
+        }
+        .music-player {
+            width: 250px;
+            height: 60px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            display: flex;
+            align-items: center;
+            padding: 10px;
+            z-index: 999;
+        }
+        .music-player img {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-right: 10px;
+        }
+        .music-player audio {
+            width: 180px;
+        }
+        .notebook {
+            font-family: 'Courier New', Courier, monospace;
+            background-color: #fdf6e3;
+            border-radius: 10px;
+            border: 2px solid #C00000;
+            padding: 20px;
+            text-align: left;
+            line-height: 1.6;
+            height: 300px; /* Aumenta la altura para más espacio */
+            overflow-y: auto; /* Agrega un scrollbar si el contenido excede la altura */
+        }
+    </style>
+</head>
+<body>
+
+    <h1>¡Feliz Aniversario! ❤️</h1>
+
+    <!-- Música de Fondo -->
+    <audio id="bgMusic" autoplay loop>
+        <source src="tu_musica_de_fondo.mp3" type="audio/mpeg">
+        Tu navegador no soporta la reproducción de audio.
+    </audio>
+
+    <!-- Reproductor de Música en la Esquina -->
+    <div class="music-player">
+        <img src= "https://cdn.pixabay.com/photo/2024/05/17/05/24/hearts-8767348_1280.png" alt="Imagen de música">
+        <audio controls id="customMusic">
+            <source src="https://drive.google.com/file/d/161PIOybTFZjU7ZcYoY1oZEp_-LP9GRoR/view?usp=sharing" type="audio/mp3">
+            Tu navegador no soporta el elemento de audio.
+        </audio>
+    </div>
+
+    <div class="book">
+        <!-- Pestañas de Navegación -->
+        <div class="tabs">
+            <div class="tab active" onclick="showContent(1)">Imágenes</div>
+            <div class="tab" onclick="showContent(2)">Videos</div>
+            <div class="tab" onclick="showContent(3)">Mensajes</div>
+            <div class="tab" onclick="showContent(4)">Playlist</div>
+            <div class="tab" onclick="showContent(5)">Cartas</div>
+        </div>
+
+        <!-- Contenido de las Pestañas -->
+        <div class="content active" id="content1">
+            <h2>Mi hermoso esposo Rai ❤️ </h2>
+            <div class="images">
+                <img src="https://lh3.googleusercontent.com/AP1GczPOJOJgE_m0JSQOcvnO_pTX3eUFldjWPHOJRZhEYRgvOCcRuTkk55cDLIkLICimA7IGtygLhZbzR6txnpPEV9UtGtaTKsqdqr3CKWSNnpqcNpehI9BtL7LpWUhnu5Wa7XSEO9GRQTw9lS6lwBT2iHWvPA=w610-h610-s-no-gm?authuser=0"alt="Imagen 1">
+                <img src="https://lh3.googleusercontent.com/AP1GczN792IlVRlJejBT5-IYc5EtKYeR14mrQWAd8rz7MQxJNIJbiUDWQhMa1f48_l_IocB4HXtjpu5-dlaP_khsvGh9AJE9OVCG1HUegrLAhyuTP4o0EjGyyxuxyHTkyIAIMsiBrUbMf_1YP8lCVuDlMJp9QA=w610-h610-s-no-gm?authuser=0"alt="Imagen 2">
+                <img src="https://lh3.googleusercontent.com/AP1GczPFoHPjUa0gztW4k0UA8UZe0Ok3TQFaViRmfkf7Dt_T3g8ErIEdyc_XZtxBEhps5g49ipvNjyb-hFH3-l5RWkW5s2SXKHzCugatap113XMrBx25ATchjWMZ6sxuOpmX3AViR1BoRQUZPj5MS08GcX1_tQ=w610-h610-s-no-gm?authuser=0"alt="Imagen 3">
+            </div>
+        </div>
+
+        <div class="content" id="content2">
+            <h2>La paso muy bien a tu lado ❤️</h2>
+            <div class="videos">
+                <iframe src="https://drive.google.com/file/d/13r9Xrf3M4NlCXcT3lUd3Glr6kzhGK3Pd/preview"allowfullscreen></iframe>
+                <iframe src= "https://drive.google.com/file/d/1_5Sos9wolsfzgXxPwzOVEBmnjs2hj8Fm/preview" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="content" id="content3">
+            <h2>Mensajitos ❤️</h2>
+            <div class="messages">
+                <p>Este es el primer mensaje especial para ti. Te amo con todo mi corazón y cada día me siento más afortunado de estar a tu lado.❤️ </p>
+            </div>
+            <div class="messages">
+                <p>Recuerdo el día que nos conocimos como si fuera ayer. Eres mi compañero de aventuras y el amor de mi vida.❤️</p>
+            </div>
+            <div class="messages">
+                <p>Gracias por todos los momentos que hemos compartido, por las risas, los abrazos y el amor que siempre me das. ¡Feliz aniversario,cariño!.❤️</p>
+            </div>
+            <div class="messages">
+                <p> Quiero que siempre seas tu, no quiero a nadie más a mi lado, cariño. ❤️</p>
+            </div>
+        </div>
+
+        <div class="content" id="content4">
+            <h2>Playlist ❤️ </h2>
+            <div class="playlist">
+                <p> Desde que te cocnocí todas las canciones de amor tuvieron sentido ❤️:</p>
+                <iframe src="https://drive.google.com/file/d/1vVVQGoAXwpj0fI3jnj7mAqZf2uEQmcLR/preview"  allowfullscreen></iframe>
+                <iframe src="https://drive.google.com/file/d/1GZe-NyQdyZZRn73tIy608niAaBgJAvaU/preview" allowfullscreen></iframe>
+            </div>
+        </div>
+
+        <div class="content" id="content5">
+            <h2>Escucha a mi corazón ❤️ </h2>
+            <div class="notebook">
+                <p>Amor, </p>
+                <p>
+
+                    ¡Cuatro años! No puedo creer que ya haya pasado tanto tiempo desde que empezamos a escribir nuestra historia juntos. Quién iba a decir que lo que comenzó como unas simples charlas por redes terminaría en lo que tenemos hoy. Pero aquí estamos, y no cambiaría nada de lo que hemos vivido hasta ahora.
+                    
+                    A veces pienso en cómo todo comenzó, tan sencillo como intercambiar mensajes, pero lo que me atrapó fue cómo me hacías sentir desde el primer día. Incluso desde la distancia, siempre has estado tan presente en mi vida, y no hay un solo día en que no agradezca haber encontrado a alguien tan especial como tú. En estos cuatro años, a pesar de los kilómetros entre nosotros, hemos construido algo tan fuerte que ni la distancia ha podido debilitarnos.
+                    
+                    A lo largo de este tiempo, hemos pasado por tantas cosas: esas largas llamadas hasta la madrugada, donde se nos va el tiempo sin darnos cuenta. Pero a pesar de todo eso, seguimos aquí, más fuertes que nunca. Cada vez que pienso en ti, siento que he encontrado a la persona perfecta para mí, alguien que me entiende, que me apoya y que siempre me saca una sonrisa, incluso en los días difíciles.
+                    
+                    Sé que tener una relación a distancia no es fácil, y hemos tenido nuestros momentos complicados, pero no cambiaría nada de lo que hemos vivido. Lo que tenemos es real, es único, y me llena de esperanza pensar en el día en que la distancia ya no será un obstáculo entre nosotros.
+                    
+                    Te amo por tantas cosas que me costaría ponerlas todas aquí, pero lo intentaré. Te amo por cómo siempre estás ahí para mí, por cómo me haces reír incluso cuando estoy de mal humor, por tu paciencia y tu manera de ver el mundo. Te amo por la confianza que me das, por ser tan tú, tan genuino, y por hacerme sentir querido a pesar de todo. Siento que, aunque estemos lejos, siempre estamos conectados de una forma que va más allá de lo físico.
+                    
+                    Quiero que sepas que, aunque a veces se hace difícil estar separados, todo vale la pena porque te tengo a ti. No puedo esperar por el día en que por fin podamos compartir más momentos juntos en persona, pero mientras tanto, cada mensaje, cada llamada y cada "te amo" a través de la pantalla sigue siendo igual de importante para mí.
+                    
+                    Gracias por estos cuatro años llenos de risas y mucho amor. Eres lo mejor que me ha pasado, y estoy emocionado por todo lo que aún nos queda por vivir, ya sea a la distancia o, eventualmente, juntos. ❤️ <p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function showContent(index) {
+            const contents = document.querySelectorAll('.content');
+            const tabs = document.querySelectorAll('.tab');
+
+            contents.forEach(content => content.classList.remove('active'));
+            tabs.forEach(tab => tab.classList.remove('active'));
+
+            contents[index - 1].classList.add('active');
+            tabs[index - 1].classList.add('active');
+        }
+    </script>
+
+</body>
+</html>
